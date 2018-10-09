@@ -3,15 +3,23 @@
 from tkinter import *
 from tkinter import messagebox
 
+def proccess_mac(mac_in):
+    mac_out = ""
+
+    
+    return mac_out
+# end process_mac
+
 def handle_return(event):
     mac_txt = ""
     mac_txt = mac_entry.get()
 
     if mac_txt != "":
         print("Got: " + mac_txt)
+        proccess_mac(mac_txt)
     else:
         messagebox.showerror("Error", "Enter a MAC Address")
-# end process
+# end handle_return
 
 
 # root TK obj
