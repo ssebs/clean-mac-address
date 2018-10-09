@@ -17,12 +17,14 @@ def proccess_mac(mac_in):
         split_char = '-'
     else:
         messagebox.showerror("Error", "Enter a MAC Address that contains a : or -")
+        return 1
 
     # create mac addr array 
     mac_ary = mac_in.split(split_char)
 
     if len(mac_ary) != 6:
         messagebox.showerror("Error", "Make sure the MAC is valid!")
+        return 1
 
     # remove leading 0 + lowercase
     for x in mac_ary:
@@ -43,8 +45,16 @@ def handle_return(event):
     mac_txt = mac_entry.get()
 
     if mac_txt != "":
-        print("Got: " + mac_txt)
-        proccess_mac(mac_txt)
+        #print("Got: " + mac_txt)
+        mac = proccess_mac(mac_txt)
+        if mac != 1:
+            root.clipboard_clear()
+            root.clipboard_append(mac)
+            root.update()
+            messagebox.showinfo(title="Your new MAC", message=(mac + " has been set on your clipboard"))
+            mac_entry.delete(0,END)
+            mac_entry.insert(0,mac)
+            mac_entry.selection_range(0, END)
     else:
         messagebox.showerror("Error", "Enter a MAC Address")
 # end handle_return
