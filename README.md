@@ -4,6 +4,8 @@ Program to "clean" MAC address for registrar input
 
 ## DEPS:
 - pyperclip (pip)
+- pyinstaller (pip)
+    - used to build to exe
 
 ## TODO:
 1. Create simple GUI program
