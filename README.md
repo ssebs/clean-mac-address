@@ -2,6 +2,9 @@
 
 Program to "clean" MAC address for registrar input
 
+## DEPS:
+- pyperclip (pip)
+
 ## TODO:
 1. Create simple GUI program
 2. Functionality:

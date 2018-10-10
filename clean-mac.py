@@ -2,6 +2,7 @@
 
 from tkinter import *
 from tkinter import messagebox
+import pyperclip
 
 def proccess_mac(mac_in):
     mac_out = ""
@@ -48,9 +49,11 @@ def handle_return(event):
         #print("Got: " + mac_txt)
         mac = proccess_mac(mac_txt)
         if mac != 1:
-            root.clipboard_clear()
-            root.clipboard_append(mac)
-            root.update()
+            pyperclip.copy(mac)
+            #root.clipboard_clear()
+            #root.update()
+            #root.clipboard_append(mac)
+            #root.update()
             messagebox.showinfo(title="Your new MAC", message=(mac + " has been set on your clipboard"))
             mac_entry.delete(0,END)
             mac_entry.insert(0,mac)
