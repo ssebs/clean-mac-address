@@ -11,10 +11,15 @@ def proccess_mac(mac_in):
     final_mac_ary = []
     mac_in = mac_in.strip()
 
-    # check seperator
+    # check separator
     if ":" in mac_in:
         split_char = ':'
     elif "-" in mac_in:
+        split_char = '-'
+    elif len(mac_in) == 12:
+        # handle scanned MAC's e.g. F0189884EA51
+        tmp = '-'.join(mac_in[i:i + 2] for i in range(0, len(mac_in), 2))
+        mac_in = tmp
         split_char = '-'
     else:
         messagebox.showerror("Error", "Enter a MAC Address that contains a : or -")
