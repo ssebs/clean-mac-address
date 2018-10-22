@@ -67,6 +67,14 @@ def handle_return(event):
         messagebox.showerror("Error", "Enter a MAC Address")
 # end handle_return
 
+def handle_submit():
+    handle_return(None)
+
+# end handle_submit
+
+def handle_clear():
+    mac_entry.delete(0, END)
+# end handle_clear
 
 # root TK obj
 root = Tk()
@@ -78,8 +86,15 @@ lab1.pack(side=LEFT)
 # add entry
 mac_entry = Entry(root, bd=5)
 mac_entry.bind("<Return>",handle_return)
-mac_entry.pack(side=RIGHT)
+mac_entry.pack(side=LEFT)
 mac_entry.focus()
+
+# add submit button
+submit_btn = Button(root,text="Submit", command=handle_submit)
+submit_btn.pack(side=LEFT)
+# add clear button
+clear_btn = Button(root,text="Clear", command=handle_clear)
+clear_btn.pack(side=LEFT)
 
 # run mainloop
 root.title = "Clean MAC"
