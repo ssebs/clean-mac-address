@@ -5,14 +5,7 @@ Program to "clean" MAC address for registrar input
 ## DEPS:
 - pyperclip (pip)
 - pyinstaller (pip)
-    - used to build to exe
+    - used to build to exe/binary
 
 ## TODO:
-1. Create simple GUI program
-2. Functionality:
-    - input mac
-    - translate from color, hyphen, period to colon only
-    - remove leading 0's (e.g. 05:04:... -\> 5:4:...)
-    - lowercase the letters
-3. Copy to clipboard button / auto
- 
+- Add option to opt out of removing leading 0
