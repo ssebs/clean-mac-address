@@ -32,10 +32,10 @@ def proccess_mac(mac_in):
         messagebox.showerror("Error", "Make sure the MAC is valid!")
         return 1
 
-    # remove leading 0 + lowercase
+    # remove leading 0(if applicable) + lowercase
     for x in mac_ary:
         tmp = x.lower()
-        if tmp.startswith("0"):
+        if tmp.startswith("0") and enable_leading_0.get():
             tmp = tmp[1]
         final_mac_ary.append(tmp)
 
@@ -79,8 +79,13 @@ def handle_clear():
 # root TK obj
 root = Tk()
 
+# add checkbox
+enable_leading_0 = IntVar()
+cb = Checkbutton(root, text="Remove leading 0?", variable=enable_leading_0, onvalue=1, offvalue=0)
+cb.pack(side=LEFT)
+
 # add label
-lab1 = Label(root, text="Input your MAC Address: ")
+lab1 = Label(root, text="| Input your MAC Address: ")
 lab1.pack(side=LEFT)
 
 # add entry
