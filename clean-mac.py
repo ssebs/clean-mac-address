@@ -37,6 +37,8 @@ def proccess_mac(mac_in):
         tmp = x.lower()
         if tmp.startswith("0") and enable_leading_0.get():
             tmp = tmp[1]
+        elif len(tmp) ==1: # has a leading 0 that was dropped that we want to convert back
+            tmp = "0" + tmp
         final_mac_ary.append(tmp)
 
     for x in final_mac_ary:
