@@ -2,6 +2,7 @@
 
 from tkinter import *
 from tkinter import messagebox
+from tkinter.font import Font
 import pyperclip
 
 def proccess_mac(mac_in):
@@ -25,7 +26,7 @@ def proccess_mac(mac_in):
         messagebox.showerror("Error", "Enter a MAC Address that contains a : or -")
         return 1
 
-    # create mac addr array 
+    # create mac addr array
     mac_ary = mac_in.split(split_char)
 
     if len(mac_ary) != 6:
@@ -44,7 +45,7 @@ def proccess_mac(mac_in):
     for x in final_mac_ary:
         mac_out += x + ":"
     mac_out = mac_out[:-1]
-    
+
     return mac_out
 # end process_mac
 
@@ -78,8 +79,11 @@ def handle_clear():
     mac_entry.delete(0, END)
 # end handle_clear
 
-# root TK obj
+
+### Code Entry ###
 root = Tk()
+ubuntu_font = Font(family="Ubuntu", size=10)
+root.option_add("*Font", ubuntu_font)
 
 # add checkbox
 enable_leading_0 = IntVar()
